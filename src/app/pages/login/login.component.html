@@ -13,11 +13,17 @@
         <mat-error *ngIf="form.get('username').hasError('required')">
           Email is <strong>required</strong>
         </mat-error>
+        <mat-error *ngIf="form.get('username').hasError('server')">
+          {{error.email}}
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width-input">
         <input matInput type="password" placeholder="Password" formControlName="password" required>
-        <mat-error>
+        <mat-error *ngIf="form.get('password').hasError('required')">
           Please provide a valid password
+        </mat-error>
+        <mat-error *ngIf="form.get('password').hasError('server')">
+          {{error.password}}
         </mat-error>
       </mat-form-field>
       <button type="submit" mat-raised-button color="primary">Login</button>

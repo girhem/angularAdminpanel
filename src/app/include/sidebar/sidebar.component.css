@@ -20,3 +20,20 @@
      Every toolbar row uses a flexbox row layout. */
   flex: 1 1 auto;
 }
+.mat-subheader { height: auto !important; line-height: initial !important; padding-bottom: 5px; padding-top: 5px; color: rgba(255, 255, 255, 0.54);}
+mat-sidenav {
+  background-color: #151515 !important;
+  color: #fff !important;
+}
+.mat-divider {
+  border-top-color: rgba(255, 255, 255, 0.16);
+}
+.mat-toolbar {
+  color: #fff !important;
+}
+.mat-list-base .mat-list-item {
+  color: #fff !important;
+}
+.mat-list-option:hover, .mat-list-option:focus, .mat-nav-list .mat-list-item:hover, .mat-nav-list .mat-list-item:focus, .mat-action-list .mat-list-item:hover, .mat-action-list .mat-list-item:focus, .mat-nav-list .mat-list-item.active {
+  background: rgba(255, 255, 255, 0.09);
+}

@@ -10,8 +10,10 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   public form: FormGroup;
-  public loginInvalid: boolean;
-  private formSubmitAttempt: boolean;
+  public error = {
+    email : '',
+    password : ''
+  };
   private returnUrl: string;
 
   constructor(
@@ -32,22 +34,33 @@ export class LoginComponent implements OnInit {
 
   logout() {
     this.sess.isLogin = false;
-    this.router.navigate(['']);
+    this.router.navigate(['dashboard']);
   }
 
   onSubmit() {
-    this.loginInvalid = false;
-    this.formSubmitAttempt = false;
+    this.sess.isLogin = true;
     if (this.form.valid) {
       try {
         const username = this.form.get('username').value;
         const password = this.form.get('password').value;
-        this.sess.isLogin = false;
+        if (username !== 'admin@admin.com') {
+          this.form.markAsTouched();
+          this.form.get('username').setErrors({server : true});
+          this.error.email = 'This email address is not registered on server.';
+        } else {
+          if (password !== 'admin') {
+            this.form.markAsTouched();
+            this.form.get('password').setErrors({server : true});
+            this.error.password = 'This password is wrong.';
+          } else {
+            this.sess.isLogin = false;
+          }
+        }
       } catch (err) {
-        this.loginInvalid = true;
+        // this.loginInvalid = true;
       }
     } else {
-      this.formSubmitAttempt = true;
+      // this.formSubmitAttempt = true;
     }
   }
 

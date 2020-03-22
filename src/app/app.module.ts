@@ -12,6 +12,7 @@ import {AppMaterialModule} from './app-material/app-material.module';
 import {LoginComponent} from './pages/login/login.component';
 import {ErrorStateMatcher, ShowOnDirtyErrorStateMatcher} from '@angular/material/core';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AutocompleteComponent } from './pages/form-control/autocomplete/autocomplete.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     FooterComponent,
     SidebarComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    AutocompleteComponent
   ],
   imports: [
     FormsModule,
